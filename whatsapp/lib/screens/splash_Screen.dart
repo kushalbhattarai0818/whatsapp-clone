@@ -13,7 +13,7 @@ class splash_screen extends StatefulWidget {
 class _splash_screenState extends State<splash_screen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds:3),(){
+    Future.delayed(Duration(seconds:2),(){
     Navigator.push(context, MaterialPageRoute(builder: (_)=>home_Screen()));
 
 

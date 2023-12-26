@@ -7,14 +7,26 @@ class home_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(80.0), // Set the height here
+          preferredSize: Size.fromHeight(70.0), // Set the height here
           child: AppBar(
+            backgroundColor: Colors.green,
             title: Column(
               children: [
                 Row(
                   children: [
-                    
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 3, 0),
+                      child: Container(
+                        child: Image.asset(
+                          'assets/whatsapp.png',
+                          width: 35,
+                          height: 35,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Text(
@@ -24,7 +36,7 @@ class home_Screen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(130, 0, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(100, 0, 0, 0),
                       child: Icon(Icons.camera_alt),
                     ),
                     Padding(
@@ -37,26 +49,43 @@ class home_Screen extends StatelessWidget {
                     ),
                   ],
                 ),
-
-
-                Row(children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
-                    child: Text("Chats",style: TextStyle(color:Colors.white,fontSize: 17,fontWeight: FontWeight.bold ),),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(75, 15, 0, 0),
-                    child: Text("Updates",style: TextStyle(color:Colors.white,fontSize: 17,fontWeight: FontWeight.bold ),),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(75, 10, 0, 0),
-                    child: Text("Calls",style: TextStyle(color:Colors.white,fontSize: 17,fontWeight: FontWeight.bold ),),
-                  ),
-
-                ],)
+                
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 7, 0, 0),
+                      child: Text(
+                        "Chats",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(75, 7, 0, 0),
+                      child: Text(
+                        "Updates",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(75, 7, 0, 0),
+                      child: Text(
+                        "Calls",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
-            backgroundColor: Colors.green,
           ),
         ),
         body: ListView.builder(
@@ -66,9 +95,9 @@ class home_Screen extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Container(
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey, width: 1),
-                      color: Colors.white,
-                     ),
+                    border: Border.all(color: Colors.grey, width: 0.5),
+                    color: Colors.white,
+                  ),
                   child: ListTile(
                     leading: CircleAvatar(
                       backgroundImage:
@@ -80,6 +109,8 @@ class home_Screen extends StatelessWidget {
                   ),
                 ),
               );
-            }));
-  }
+            }
+           )
+         );
+       }
 }
