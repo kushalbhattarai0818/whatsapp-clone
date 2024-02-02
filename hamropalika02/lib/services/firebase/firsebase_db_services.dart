@@ -7,8 +7,11 @@ import 'package:hamropalika02/models/details_models.dart';
 class FirebaseDb {
   FirebaseFirestore db = FirebaseFirestore.instance;
 
-  addDetails(Details details) async {
-    await db.collection('details').add(details.toJson(details));
+  addDetails(Details details, {String? id}) async {
+     DocumentReference<Map<String, dynamic>> documentReference =
+   db.collection('details').doc(id!);
+
+    await documentReference.set((details.toJson(details)));
   }
     updateDetails(String id,Details details)async{
       await db.collection('details').doc(id).update(details.toJson(details));
