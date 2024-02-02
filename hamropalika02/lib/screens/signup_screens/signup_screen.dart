@@ -2,14 +2,13 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hamropalika02/main.dart';
 import 'package:hamropalika02/model/profile_view_model.dart';
-import 'package:hamropalika02/models/details_models.dart';
 import 'package:hamropalika02/screens/home_screens/bottom_navigation_bar/bottom_navigation_bar.dart';
 
 import 'package:hamropalika02/screens/login_screens/login_screen.dart';
-import 'package:hamropalika02/services/firebase_auth_services.dart';
 import 'package:provider/provider.dart';
+
+import '../../models/details_models.dart';
 
 
 
@@ -22,6 +21,7 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+ 
    GlobalKey<FormState> fromkey = GlobalKey();
 
   TextEditingController nameController = TextEditingController();
@@ -37,7 +37,6 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController passwordController = TextEditingController();
 
   TextEditingController retypepasswordController = TextEditingController();
-  
 
 
   String? selectedGender;
@@ -53,8 +52,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
-  ProfileViewModel profileViewModel = Provider.of<ProfileViewModel>(context);
-
+       ProfileViewModel profileViewModel = Provider.of<ProfileViewModel>(context);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -330,44 +328,34 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
               InkWell(
-                onTap: ()async {
-                  // setState(() {
-                    if (fromkey.currentState!.validate())  {
-                          try {
-                            await FirebaseAuthService()
-                                .signUp(emailController.text,
-                                    passwordController.text)
-                                .then(
-                                  (value)  {
-              Details userdetails=Details(
+                onTap: () {
+                  setState(() {
+                    if (fromkey.currentState!.validate()) {
+                    FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text.toString()
+                      
+                    , password: passwordController.text.toString()).then((value) {
+
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=>BottomBarScreen()));
+
+                       Details userdetails=Details(
 
         name: nameController.text,
         address: addressController.text,
         phone: phoneController.text,
         email: emailController.text,
         gender: selectedGender,
-        // ward: selectedWard,
+        ward: "2",
       );
-      profileViewModel.addDetails(userdetails);
+      profileViewModel.addDetails(userdetails, value.user!.uid);
 
-                                    if (value == 1)
-                                      {
-                                        Navigator.pushReplacement(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    login_app()));
-                                      }
-                                  },
-                                );
-                          } catch (e) {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content:
-                                    Text("Unable to login because of $e")));
-                          }
-                        }
-                    
-                  // });
+
+                    });
+
+                      
+        
+                    }
+                    return null;
+                  });
                 },
                 child: Container(
                   height: 50,

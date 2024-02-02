@@ -1,51 +1,52 @@
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hamropalika02/const/app_color.dart';
-import 'package:hamropalika02/model/auth_view_model.dart';
+
 import 'package:hamropalika02/model/details_view_model.dart';
 import 'package:hamropalika02/model/profile_view_model.dart';
 import 'package:hamropalika02/screens/home_screens/bottom_navigation_bar/bottom_navigation_bar.dart';
+
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
-void main()async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- await Firebase.initializeApp(
-   options: DefaultFirebaseOptions.currentPlatform,
- );
-runApp(login_app());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
 }
 
-class login_app extends StatelessWidget {
-  const login_app({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-  statusBarColor: AppColors.secondaryyColor
-));
-     ThemeData(
-      
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 7, 109, 10), ),
-        useMaterial3: true,
-      );
-    return MultiProvider(providers: [ChangeNotifierProvider(create: (context)=>ProfileViewModel()),
-                          ChangeNotifierProvider(create: (context)=>DetailsViewModel()),
-                          ChangeNotifierProvider(create: (context)=>AuthViewModel()),
-    
-    ],
-      child: const MaterialApp(
+      statusBarColor: AppColors.secondaryyColor,
+    ));
+
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ProfileViewModel()),
+        ChangeNotifierProvider(create: (context) => DetailsViewModel()),
+        // ChangeNotifierProvider(create: (context) => AuthViewModel()),
+      ],
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'login app',
+        title: 'Login App',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 7, 109, 10)),
+          useMaterial3: true,
+        ),
         home: BottomBarScreen(),
-         
       ),
     );
- 
-
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});

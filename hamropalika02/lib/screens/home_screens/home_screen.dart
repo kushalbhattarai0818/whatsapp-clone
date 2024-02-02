@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
-    double deviceHeight = MediaQuery.of(context).size.height;
+    // double deviceHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         key:_key,
@@ -495,7 +495,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       const EdgeInsets.fromLTRB(
                                                           0, 15, 0, 0),
                                                   child: FaIcon(
-                                                    FontAwesomeIcons.circleInfo,
+                                                    FontAwesomeIcons.book,
                                                     color: Colors.pink,
                                                   ),
                                                 ),
@@ -513,7 +513,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                         ),
                                         Text(
-                                          "Notice",
+                                          "Eduction",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               color: const Color.fromARGB(
@@ -777,7 +777,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.fromLTRB(
                                             0, 12, 0, 0),
                                         child: Text(
-                                            "Represenataives/\nEmployee",
+                                            "Representative/\nEmployee",
                                             style: TextStyle(
                                               color:
                                                   Color.fromARGB(160, 0, 0, 0),
@@ -1323,7 +1323,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: [
                       Text(
-                        "Departments for complaint",
+                        "Departments for complaints",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,

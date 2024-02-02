@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hamropalika02/screens/home_screens/bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:hamropalika02/screens/home_screens/home_screen.dart';
+// import 'package:hamropalika02/screens/home_screens/home_screen.dart';
 
 class WaterSupply extends StatelessWidget {
   const WaterSupply({super.key});

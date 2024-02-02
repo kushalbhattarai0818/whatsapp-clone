@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hamropalika02/model/profile_view_model.dart';
@@ -19,9 +20,9 @@ class ProfileScreeen extends StatelessWidget {
 
   TextEditingController addressController = TextEditingController();
 
-  TextEditingController genderController = TextEditingController();
+  // TextEditingController genderController = TextEditingController();
 
-   TextEditingController wardController = TextEditingController();
+  //  TextEditingController wardController = TextEditingController();
     
   String? selectedGender;
 
@@ -30,7 +31,7 @@ class ProfileScreeen extends StatelessWidget {
   String? selectedWard;
 
   List<String> WardOptions = ['1', '2', '3','4', '5', '6','7', '8', '9','10', '11', '12'];
-      double deviceWidth = MediaQuery.of(context).size.width;
+      // double deviceWidth = MediaQuery.of(context).size.width;
     double deviceHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
@@ -79,10 +80,10 @@ class ProfileScreeen extends StatelessWidget {
                          Padding(
                            padding: const EdgeInsets.all(8.0),
                            child: Column(children: [
-                             Text("Kushal Bhattarai",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
+                             Text("User Name",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
                               
                              ),
-                             Text("9842540884",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15))
+                             Text("Phone Number",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15))
                            ],),
                          )
                          ],
@@ -114,8 +115,10 @@ class ProfileScreeen extends StatelessWidget {
                 
                   
                    child: TextFormField(
+                    
                     controller: nameController,
                     decoration: InputDecoration(
+                      hintText: "User Name",
                       isCollapsed: true,
                       contentPadding: EdgeInsets.all(8),
                       enabledBorder: OutlineInputBorder(
@@ -144,6 +147,7 @@ class ProfileScreeen extends StatelessWidget {
                    child: TextFormField(
                     controller: addressController,
                     decoration: InputDecoration(
+                       hintText: "Address",
                       isCollapsed: true,
                       contentPadding: EdgeInsets.all(8),
                       enabledBorder: OutlineInputBorder(
@@ -172,6 +176,7 @@ class ProfileScreeen extends StatelessWidget {
                    child: TextFormField(
                     controller: emailController,
                     decoration: InputDecoration(
+                       hintText: "E-mail",
                       isCollapsed: true,
                       contentPadding: EdgeInsets.all(8),
                       enabledBorder: OutlineInputBorder(
@@ -199,6 +204,7 @@ class ProfileScreeen extends StatelessWidget {
                    child: TextFormField(
                     controller: phoneController,
                     decoration: InputDecoration(
+                       hintText: "Phone no",
                       isCollapsed: true,
                       contentPadding: EdgeInsets.all(8),
                       enabledBorder: OutlineInputBorder(
@@ -308,7 +314,7 @@ class ProfileScreeen extends StatelessWidget {
         gender: selectedGender,
         ward: selectedWard,
       );
-      profileViewModel.addDetails(userdetails);
+      profileViewModel.addDetails(userdetails, FirebaseAuth.instance.currentUser!.uid);
                   },
                   
                    child: Text("Please Update",style: TextStyle(color: Colors.white),),

@@ -25,8 +25,8 @@ class ProfileViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  addDetails(Details details)async{
-    await db.addDetails(details);
+  addDetails(Details details, String id)async{
+    await db.addDetails(details, id: id);
     // getAllDetails();
     notifyListeners();
   }
