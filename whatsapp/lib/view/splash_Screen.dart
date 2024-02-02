@@ -1,8 +1,8 @@
 
 
 
-import 'package:whatsapp/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp/view/home_Screen.dart';
 class splash_screen extends StatefulWidget {
   const splash_screen({super.key});
 
