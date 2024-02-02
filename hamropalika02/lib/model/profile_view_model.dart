@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hamropalika02/models/details_models.dart';
 import 'package:hamropalika02/services/firebase/firsebase_db_services.dart';
 
-class ProfileViewModel extends ChangeNotifier {
+class   ProfileViewModel extends ChangeNotifier {
   String? _gender;
 
   int? _ward;

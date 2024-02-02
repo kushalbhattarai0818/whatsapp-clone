@@ -8,13 +8,13 @@ class DetailsViewModel extends ChangeNotifier {
   DetailsViewModel() {
     getAllDetails();
   }
-  List<Details> _details = [];
-  List<Details> get details => _details;
+  List<Details> details = [];
+  List<Details> get detail => details;
 
   FirebaseDb db = FirebaseDb();
 
   getAllDetails() async {
-   _details=await db.getAllDetails();
+   details=await db.getAllDetails();
     notifyListeners();
   }
 
