@@ -1,5 +1,5 @@
-import 'package:whatsapp/screens/whatsapp_data.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp/view/whatsapp_Data.dart';
 
 class home_Screen extends StatelessWidget {
   const home_Screen({super.key});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/screens/splash_screen.dart';
+import 'package:whatsapp/view/onboarding/onboarding_screen.dart';
+import 'package:whatsapp/view/splash_Screen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: splash_screen(),
+      home: OnboardingScreen(),
     );
   }
 }
